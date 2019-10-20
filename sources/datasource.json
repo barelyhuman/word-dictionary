@@ -1,3 +1,4 @@
 {
-    "APIURL": "https://fourtytwowords.herokuapp.com"
+    "APIURL": "https://fourtytwowords.herokuapp.com",
+    "APIKEY": "a5fa78f1db4bdcdbb9e398585762afcb26a1c4362190690d70b567cc3913f9ab1af89ad47cb971eb916db850622e0a29230ed7b9fa20bd63f84d0549fec6c2d4c4b7c405644cba185ec9978e2d9c5b21"
 }
