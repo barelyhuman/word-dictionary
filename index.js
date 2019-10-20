@@ -4,8 +4,14 @@ const actionHandler = require('./actions');
 
 function main() {
 
-    const actionArg = process.argv[2];
-    const word = process.argv[3];
+    let actionArg, word;
+
+    if (process.argv.length === 4) {
+        actionArg = process.argv[2];
+        word = process.argv[3];
+    } else {
+        word = process.argv[2];
+    }
 
     console.log(`Word: ${word}`);
 
