@@ -1,7 +1,9 @@
 const antonymn = require('./antonym');
+const definition = require('./definition');
 
 const actions = {
-    ant: antonymn
+    ant: antonymn,
+    def: definition
 }
 
 module.exports = function (actionArgument, word) {
