@@ -7,11 +7,15 @@ const actions = {
     ant: antonymn,
     def: definition,
     syn: synonym,
-    ex: example
+    ex: example,
+    default: definition
 }
 
 module.exports = function (actionArgument, word) {
+
     if (actions[actionArgument]) {
         actions[actionArgument](word);
+    } else {
+        actions.default(word);
     }
 }
