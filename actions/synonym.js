@@ -1,4 +1,5 @@
 const apiService = require('../utils/api.service');
+const formatter = require('../utils/formatter');
 
 const relationshipTypeKey = 'synonym';
 
@@ -7,11 +8,11 @@ module.exports = function (word) {
         .then(details => {
             let synonyms = details.filter(item => item.relationshipType === relationshipTypeKey);
             synonyms = synonyms.length > 0 ? synonyms[0].words : ["None Found"];
-            console.log("=====Synonyms=====");
+            formatter.printHeaderText('Synonyms');
             synonyms.forEach(syn => {
                 console.log(syn);
             });
-            console.log("-----xxxxxxxx-----");
+            formatter.printFooterText();
         })
         .catch(err => {
             throw err;

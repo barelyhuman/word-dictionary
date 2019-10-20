@@ -1,16 +1,18 @@
 const apiService = require('../utils/api.service');
+const formatter = require('../utils/formatter');
 
 module.exports = function (word) {
     apiService.fetchWordDefinition(word)
         .then(details => {
-            console.log("=====Definitions=====");
+            formatter.printHeaderText('Definitions');
             details.forEach((definition, index) => {
-                console.log(definition.text);
                 if (index < details.length - 1) {
-                    console.log("--------------");
+                    formatter.printWithSeperator(definition.text);
+                } else {
+                    console.log(definition.text);
                 }
             });
-            console.log("-----xxxxxxxx-----");
+            formatter.printFooterText();
         })
         .catch(err => {
             throw err;
