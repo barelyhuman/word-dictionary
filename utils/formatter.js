@@ -3,7 +3,7 @@ module.exports = {
         console.log(`=====${header}=====\n`);
     },
     printWithSeperator: function (text) {
-        console.log(`${text}`);
+        console.log(text);
         console.log('\n-------------------\n');
     },
     printFooterText: function () {
