@@ -1,5 +1,5 @@
 const axios = require('axios');
-const APIKey = process.env.APIKey;
+const APIKEY = require('../sources/datasource.json').APIKEY;
 const APIURL = require('../sources/datasource.json').APIURL;
 
 const fetchRandomWord = () => {
@@ -11,6 +11,9 @@ const fetchRandomWord = () => {
 };
 
 const fetchWordDefinition = (word) => {
+    if (!word) {
+        return Promise.reject("No Word");
+    }
     const url = APIURL + '/word/' + word + '/definitions';
     return fetcherWithAdditions(url, 'GET')
         .then(data => {
@@ -19,6 +22,9 @@ const fetchWordDefinition = (word) => {
 };
 
 const fetchWordExamples = (word) => {
+    if (!word) {
+        return Promise.reject("No Word");
+    }
     const url = APIURL + '/word/' + word + '/examples';
     return fetcherWithAdditions(url, 'GET')
         .then(data => {
@@ -27,6 +33,9 @@ const fetchWordExamples = (word) => {
 };
 
 const fetchRelatedWords = (word) => {
+    if (!word) {
+        return Promise.reject("No Word");
+    }
     const url = APIURL + '/word/' + word + '/relatedWords';
     return fetcherWithAdditions(url, 'GET')
         .then(data => {
@@ -40,13 +49,13 @@ const fetcherWithAdditions = (url, method) => {
         url,
         method,
         params: {
-            "api_key": APIKey
+            "api_key": APIKEY
         }
     });
 }
 
 
-modules.exports = {
+module.exports = {
     fetchRandomWord,
     fetchRelatedWords,
     fetchWordDefinition,
