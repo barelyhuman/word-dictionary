@@ -7,7 +7,6 @@ module.exports = function (word) {
         .then(details => {
             let antonyms = details.filter(item => item.relationshipType === relationshipTypeKey);
             antonyms = antonyms.length > 0 ? antonyms[0].words : ["None Found"];
-            console.log(`Word:${word}`);
             console.log("=====Antonyms=====");
             antonyms.forEach(ant => {
                 console.log(ant);
