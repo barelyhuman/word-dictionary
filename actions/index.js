@@ -3,6 +3,7 @@ const definition = require('./definition');
 const synonym = require('./synonym');
 const example = require('./example');
 const details = require('./details');
+const wordOfTheDay = require('./wordOfTheDay');
 
 const actions = {
     ant: antonym,
@@ -10,14 +11,17 @@ const actions = {
     syn: synonym,
     ex: example,
     dict: details,
-    default: details
+    default: details,
+    emptyArgs: wordOfTheDay
 }
 
 module.exports = function (actionArgument, word) {
 
-    if (actions[actionArgument]) {
+    if (actions[actionArgument] && word) {
         actions[actionArgument](word);
-    } else {
+    } else if (!actionArgument && word) {
         actions.default(word);
+    } else {
+        actions.emptyArgs();
     }
 }

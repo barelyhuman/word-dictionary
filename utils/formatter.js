@@ -8,5 +8,8 @@ module.exports = {
     },
     printFooterText: function () {
         console.log('\n---------xxx-------\n');
+    },
+    formatDate: function (date) {
+        return new Date(date).toISOString().split('T')[0];
     }
 };
